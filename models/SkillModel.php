@@ -6,9 +6,7 @@ class SkillModel{
     public string $name;
     public int $level;
     public ?string $picture;
-    public ?string $projects;
-
-
+    public ?array $projects;
 
 }
 

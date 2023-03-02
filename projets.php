@@ -4,28 +4,29 @@
 //inclusion inc(head,header,footer)
 //inclusion du controller 
 require("./controllers/ProjectController.php");
-define("PAGE_TITLE", "Projets");
+//require("./controllers/SkillController.php");
+//define("PAGE_TITLE", "Projets");
 //instanciation de notre controller
-$controller = new ProjectController;
+$controllerProject = new ProjectController;
 // j'appelle de la méthode permettant de récupérer la methode readAll
-$projects = $controller->readAll();
+$projects = $controllerProject->readAll();
+
 ?>
 
-<?php include("./assets/inc/head.php");?>
-<?php include("./assets/inc/header.php");?>
+<!-- include head et header -->
 
-<main>
     <div class="container">
-        <div class="row justify-content-around">
+    <h3 class="text text-center mt-4" id="">Mes projets</h3>
+        <div class="row justify-content-around col-10 offset-1">
             <?php foreach($projects as $project){?>
-            <div class="card border-dark my-4" style="width: 18rem;">
+            <div class="card card-projet border-dark my-4" style="width: 18rem;">
                 <img src="./assets/image/projects/<?= $project->cover ?>" class="pic-card" alt="Couverture de <?= $project->name ?>">
                 <h5 class="card-title mt-3 mb-3 text-center"><?=$project->name?></h5>
                 <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p> 
                 <div class="d-flex justify-content-between">
                     <div >
                         <?php foreach($project->skills as $skill){?>
-                            <b><?=$skill->name?></b>
+                            <?=$skill->name?>
                         <?php } ?>
                     </div>
                     <div>
@@ -55,6 +56,4 @@ $projects = $controller->readAll();
             <?php } ?>
         </div>
     </div>
-</main>
-
-<?php include("./assets/inc/footer.php");?>
+<!-- include footer -->

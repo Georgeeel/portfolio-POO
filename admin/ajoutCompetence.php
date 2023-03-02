@@ -40,6 +40,10 @@ include("../assets/inc/header.php");
 
             <button type="submit" name="submit" class="btn btn-success mt-2">Ajouter</button>
         </form>
+        <div class="text-end mt-2">
+            <a href="/mon_portfolio/admin/gestionSkills.php" class="btn btn-primary">Retour</a>
+            <a href="/mon_portfolio/admin/index.php" class="btn btn-primary">Dashboard</a>
+        </div>
     </div>
 </main>
 <?php include("../assets/inc/footer.php");?>

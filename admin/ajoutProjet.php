@@ -15,11 +15,10 @@ $skillController = new SkillController;
 // Récupération de toutes les compétences
 $skills = $skillController->readAll();
 
-
 $projetController = new ProjectController;
 if(isset($_POST["submit"]) && isset($_POST["name"]) && isset($_FILES["cover"]) && isset($_POST["description"])
- && isset($_POST["link_site"]) && isset($_POST["link_git"]) && isset($_POST["date_start"]) && isset($_POST["date_end"])){
-
+&& isset($_POST["link_site"]) && isset($_POST["link_git"]) && isset($_POST["date_start"]) && isset($_POST["date_end"])){
+    
    $error = $projetController->create($_POST["name"],$_FILES["cover"],$_POST["description"],$_POST["link_site"],$_POST["link_git"],
     $_POST["date_start"],$_POST["date_end"],$_POST["skills"]);
     

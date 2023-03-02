@@ -8,3 +8,8 @@ RewriteRule ^competence/([0-9]+)/*$ detailCompetence.php?id=$1 [L]
 
 # Réécriture d'URL pour retirer l'extension du fichier ("clean URL")
 RewriteRule ^([a-zA-Z_]+)/*$ $1.php [L]
+
+# Réécriture d'URL pour afficher la page de détail
+RewriteRule ^admin/modifierCompetence/([0-9]+)/*$ admin/modifierSkill.php?id=$1 [L]
+
+RewriteRule ^admin/modifProjet/([0-9]+)/*$ admin/modifProjet.php?id=$1 [L]

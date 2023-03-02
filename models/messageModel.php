@@ -10,6 +10,12 @@ class MessageModel{
     public string $lastname;
     public string $object;
     public ?string $phone;
+
+    
+    public function displayDate(){
+        $dateTime = DateTime::createFromFormat("Y-m-d",$this->datetime);
+        return $dateTime->format("d-m-Y");
+    }
 }
 
 

@@ -8,19 +8,20 @@ define("PAGE_TITLE", "Accueil");
 <?php include("./assets/inc/head.php");?>
 <?php include("./assets/inc/header.php");?>
 
-<main class="container">
-    <style>
-        img { opacity: 0.5;
-        filter: alpha(opacity=50); /* For IE8 and earlier */}
-    </style>
-    <div class="row">
-        <h3 class="text-center mt-5">TEEEEEEEST</h3>
-    </div>
-    <div class="row">
-        
-    <h3 class="text-center mt-5">oleeee</h3>
 
-    </div>
+<main class="container-fluid" id="introduction" > 
+    <section class="d-flex flex-column justify-content-center">
+      <div class="col-md-12 text-center">
+          <h2 class="text text-danger pt-5">Avramescu Georgel</h2>
+          <hr>
+          <h3 class="pb-4">Développeur web junior - Intégrateur</h3>
+          <a href="#contact" class="btn btn-dark btn-lg">Me contacter</a>
+      </div>
+    </section>
 </main>
+  <?php include("apropos.php") ?>
+  <?php include("competences.php") ?>
+  <?php include("projets.php") ?>
+  <?php include("contact.php") ?>
 
 <?php include("./assets/inc/footer.php");?>

@@ -24,7 +24,7 @@ class ProjectController{
         foreach($result as $project){
             $this->loadSkillsFromProject($project);
         }
-
+        
         return $result;
 
     }
@@ -86,6 +86,7 @@ class ProjectController{
             $extFichier = pathinfo($_FILES['cover']["name"],PATHINFO_EXTENSION);
             $cover = 'cover_'. uniqid() . "." . $extFichier;
             move_uploaded_file($_FILES['cover']['tmp_name'], "../assets/image/projects/" . $cover);
+            
         }
         //vérification de URL
         if(!filter_var($link_site,FILTER_VALIDATE_URL) == false){
@@ -164,6 +165,93 @@ class ProjectController{
         ]; 
 
     }
+    public function updateProjet($id_project,$name,$cover,$link_site,$link_git,$description,$date_end,$date_start,$skills){
+        //vérification image
+        if(isset($_FILES['cover']['tmp_name']) && $_FILES['cover']['tmp_name'] == true){
+            $extFichier = pathinfo($_FILES['cover']["name"],PATHINFO_EXTENSION);
+            $cover = 'cover_'. uniqid() . "." . $extFichier;
+            move_uploaded_file($_FILES['cover']['tmp_name'], "../assets/image/projects/" . $cover);
+        } 
+        //vérification email
+        if(!filter_var($link_site,FILTER_VALIDATE_URL) == false){
+            
+            return [
+                "success" => false,
+                "message" => "Lien incorrect"
+            ];
+        }
+        global $pdo;
+        $sql ="UPDATE project
+                SET `name`= :name,
+                    `cover`= :cover,
+                    `link_site`= :link_site,
+                    `link_git`= :link_git,
+                    `description`= :description,
+                    `date_end`= :date_end,
+                    `date_start`= :date_start
+                WHERE `id_project`= :id_project
+                ";
+
+        $statement = $pdo->prepare($sql);
+        //parametres nommés
+        $statement->bindParam(":id_project",$id_project);
+        $statement->bindParam(":name",$name,PDO::PARAM_STR);
+        $statement->bindParam(":description",$description,PDO::PARAM_STR);
+        $statement->bindParam(":date_start",$date_start);
+    
+        //si la $date_end est vide, il prend par default la valeur null
+        //$date_end = ($date_end == '' ? null : $date_end);
+        $statement->bindParam(":date_end",$date_end);
+    
+        $link_site = ($link_site == '' ? null : $link_site);
+        $statement->bindParam(":link_site",$link_site);
+    
+        $link_git = ($link_git == '' ? null : $link_git);
+        $statement->bindParam(":link_git",$link_git);
+
+        $cover = ($cover == '' ? null : $cover);
+        $statement->bindParam(":cover",$cover);
+    
+        $statement->execute();
+
+        
+        //je recuper  dernier id inserer 
+        $id_project = $pdo->lastInsertId();
+        if(count($skills)> 0){
+            foreach($skills as $id_skill){
+                $sql = "UPDATE skill_project
+                        SET `id_skill` = :id_skill
+                        WHERE `id_project` = :id_project
+                ";
+                $statement = $pdo->prepare($sql);
+    
+                $statement->bindParam(":id_project", $id_project);
+                $statement->bindParam(":id_skill", $id_skill);
+                $statement->execute();
+            }
+        }
+        return [
+            "success" => true,
+            "message" => "Le projet" .$name ."à été bien modifier"
+        ];
+    }
+
+    public function deleteProjet($id_project){
+        global $pdo;
+        $sql = "DELETE FROM project
+                WHERE id_project = :id_project";
+        $statement = $pdo->prepare($sql);
+        $statement->bindParam(":id_project",$id_project,PDO::PARAM_INT);
+        $statement->execute();
+
+        return[
+            "success" => true,
+            "message" => "Le projet à été bien supprimer"
+        ];
+        header("Location:../admin/index.php");
+            exit();
+    }
+   
 }
 
 ?>

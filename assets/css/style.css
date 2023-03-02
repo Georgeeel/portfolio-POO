@@ -1,3 +1,14 @@
+html body {
+  box-sizing: border-box;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+  color: darkslategray;
+}
+main .container {
+  max-width: 1100px;
+}
+
 /* old */
 a, a:hover {
     text-decoration: none;
@@ -6,23 +17,47 @@ a, a:hover {
 a:hover {
     opacity: 0.7;
 }
-#cover{
+/* bg top */
+#introduction{
   width: 100%;
   height: 100vh;
-  background-color: cover;
+  background-size: cover;
   position: relative;
 }
-#cover::before{
+#introduction::before {
   content: "";
-  
+  background-image: url("../image/mesImage/banners2.jpg");
   background-size: cover;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
 
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+#introduction h2{
+  padding-top: 250px;
 }
 body{
   background-color: cadetblue;
 }
+/* carousel */
+#carouselDetail{
+  box-shadow: gray 0px 7px 29px 0px!important; 
+}
 
-/* caroussel */
+.picture_carousel{
+  max-height: 900px; 
+  height: 100%; 
+  max-width: 1900px; 
+  width: 100%;
+}
+
+
+/* carousel */
 .slides{
   width: calc(800px *3);
   animation: caroussel 10s infinite; 
@@ -60,6 +95,7 @@ body{
     transform: translateX(0);
   }
 }
+
 /* description sur mesure */
 .description_card{
     white-space: nowrap;
@@ -77,8 +113,8 @@ div [class^="col-"]{
   padding-left:5px;
   padding-right:5px;
 }
-.card{
-  transition:0.5s;
+.card-projet{
+  transition:0.8s;
   cursor:pointer;
 }
 .card-title{  
@@ -97,7 +133,7 @@ div [class^="col-"]{
   color:#18d4ca;
   
 }
-.card:hover{
+.card-projet:hover{
   transform: scale(1.05);
   box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
 }
@@ -105,7 +141,7 @@ div [class^="col-"]{
   height:80px;  
 }
 
-.card::before, .card::after {
+.card-projet::before, .card-projet::after {
   position: absolute;
   top: 0;
   right: 0;
@@ -117,13 +153,13 @@ div [class^="col-"]{
   content: '';
   pointer-events: none;
 }
-.card::before {
+.card-projet::before {
   transform-origin: left top;
 }
-.card::after {
+.card-projet::after {
   transform-origin: right bottom;
 }
-.card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+.card-projet:hover::before, .card-projet:hover::after, .card-projet:focus::before, .card-projet:focus::after {
   transform: scale3d(1, 1, 1);
 }
 

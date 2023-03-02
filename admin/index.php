@@ -16,7 +16,10 @@ include("../assets/inc/header.php");
     <p>Votre email: <?=$_SESSION["email"]?></p>
     <div class="d-flex ">
         <a href="/mon_portfolio/admin/ajoutProjet.php" class="btn btn-success mx-4">Ajouter un projet</a>
+        <a href="/mon_portfolio/admin/gestionProjet.php" class="btn btn-secondary ">Gestion des projets</a>
+        <a href="/mon_portfolio/admin/gestionSkills.php" class="btn btn-info mx-4">Gestion des compétences </a>
         <a href="/mon_portfolio/admin/ajoutCompetence.php" class="btn btn-dark">Ajouter une compétence</a>
+        <a href="/mon_portfolio/admin/message/index.php" class="btn btn-primary mx-4">Gestion des messages </a>
     </div>
 </main>
 <?php include("../assets/inc/footer.php");?>

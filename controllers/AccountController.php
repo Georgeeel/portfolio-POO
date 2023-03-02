@@ -1,6 +1,6 @@
 <?php
-require_once("../models/AccountModel.php");
-require_once("../config/config.php");
+require_once(__DIR__."/../models/AccountModel.php");
+require_once(__DIR__."/../config/config.php");
 
 
 //ce controller nous servira à créer de nouveaux compte, à nous connecter, et à vérifier la connexion 

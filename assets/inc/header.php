@@ -1,17 +1,21 @@
-<header>
-    <nav class="navbar navbar-expand-lg navbar-success bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand " href="#">AG</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
+<div class="container-fluid">
+<header class="row  py-1" style="background-color: #2E2C2C">
+    <nav class="navbar navbar-expand-sm ">
+    <div class="container-fluid d-flex">
+        <a class="navbar-brand" href="/mon_portfolio/index.php"><img id="logo" src="/mon_portfolio/assets/image/mesImage/2.png"
+            alt="logo" width="50px"></a>
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/mon_portfolio/projets.php">Profil</a>
+                <a class="nav-link active" aria-current="page" href="/mon_portfolio/projets.php"  style="color: #C0C0C0;">Profil</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/mon_portfolio/competences/">Compétences</a>
+                <a class="nav-link" href="#competence" style="color: #C0C0C0;">Compétences</a>
             </li>
             <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,16 +29,13 @@
             </ul>
             </li> -->
             <li class="nav-item">
-            <a class="nav-link ">Contact</a>
+                <a class="nav-link" href="#contact" style="color: #C0C0C0;">Contact</a>
             </li>
         </ul>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
         </div>
     </div>
 </nav>
 </header>
+</div>
 
     
